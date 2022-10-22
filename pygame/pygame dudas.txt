@@ -1,0 +1,3 @@
+omga bro oh hell nah
+
+vas a tener que poner en el cmd "pip install pygame"
