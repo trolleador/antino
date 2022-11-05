@@ -20,7 +20,7 @@ FPS = 60
 #ventana 
 displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
 
-pygame.display.set_caption("Never gonna give you up Never gonna let you down Never gonna run around and desert you")
+pygame.display.set_caption("Matar zorros")
  
 FramePerSec = pygame.time.Clock()
 
@@ -29,7 +29,7 @@ y = 0
 
 rect = pygame.Rect(20,20,20,20)
 
-#imagen
+#imagenimage.png
 
 zorro = pygame.image.load(dirname+"/zorro2.png")
 fondo = pygame.image.load(dirname+"/fondo.png")
@@ -63,6 +63,8 @@ while True:
       x -= 2
    if pressed[pygame.K_d]:
       x += 2
+      if pressed[pygame.K_SPACE]:
+       x -= 2
 
 
    #renderizado
@@ -70,8 +72,7 @@ while True:
    displaysurface.blit(fondo, (0,0))
    displaysurface.blit(zorro, (150,150))
    displaysurface.blit(persona, (x,y))
-   
-   displaysurface.blit(bala, (700,700))
+   displaysurface.blit(bala, (15,15))
 
    #actualiza lo que se ve en ventana
    pygame.display.update()
