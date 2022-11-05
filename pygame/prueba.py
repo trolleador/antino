@@ -2,7 +2,7 @@
 import pygame
 from pygame.locals import *
 import sys
-import os
+import os #esto es para dirname
 
 
 
@@ -31,10 +31,10 @@ rect = pygame.Rect(20,20,20,20)
 
 #imagen
 
-zorro = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/zorro2.png")
-fondo = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/fondo.png")
-persona = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/personayarma.png")
-bala = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/bala.png")
+zorro = pygame.image.load(dirname+"/zorro2.png")
+fondo = pygame.image.load(dirname+"/fondo.png")
+persona = pygame.image.load(dirname+"/personayarma.png")
+bala = pygame.image.load(dirname+"/bala.png")
 
 #loop principal:
 
