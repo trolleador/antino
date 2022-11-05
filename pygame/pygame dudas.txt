@@ -1,3 +1,5 @@
 omga bro oh hell nah
 
+instalar pip
 vas a tener que poner en el cmd "pip install pygame"
+ejecutar el prueba.py
