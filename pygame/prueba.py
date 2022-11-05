@@ -2,13 +2,19 @@
 import pygame
 from pygame.locals import *
 import sys
+import os
+
+
+
+
+dirname = os.path.dirname(__file__)
  
 
 #iniciadores
 pygame.init()
 
-HEIGHT = 800
-WIDTH = 800
+HEIGHT = 700
+WIDTH = 700
 FPS = 60
 
 #ventana 
@@ -25,14 +31,17 @@ rect = pygame.Rect(20,20,20,20)
 
 #imagen
 
-zorro = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/zorro nft.png")
+zorro = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/zorro2.png")
+fondo = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/fondo.png")
+persona = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/personayarma.png")
+bala = pygame.image.load("C:/Users/Cecilia/Desktop/yo/pygame/bala.png")
 
 #loop principal:
 
 while True:
 
    #Se necesita rellenar toda la pantalla con un color para que el frame anterior no salga como fondo
-   displaysurface.fill((0,0,0))
+   displaysurface.fill((255,255,255))
 
    #cierra el progama si aplastas la "x" en la ventana
    for event in pygame.event.get():
@@ -47,20 +56,23 @@ while True:
 
    #movimiento
    if pressed[pygame.K_w]:
-      rect.y -= 2
+      y -= 2
    if pressed[pygame.K_s]:
-      rect.y += 2
+      y += 2
    if pressed[pygame.K_a]:
-      rect.x -= 2
+      x -= 2
    if pressed[pygame.K_d]:
-      rect.x += 2
+      x += 2
 
 
    #renderizado
-   pygame.draw.rect(displaysurface, (255,0,0), rect)
 
-   displaysurface.blit(zorro, (rect.x,rect.y))
+   displaysurface.blit(fondo, (0,0))
+   displaysurface.blit(zorro, (150,150))
+   displaysurface.blit(persona, (x,y))
    
+   displaysurface.blit(bala, (700,700))
+
    #actualiza lo que se ve en ventana
    pygame.display.update()
 
