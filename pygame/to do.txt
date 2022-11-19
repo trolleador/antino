@@ -1,0 +1,10 @@
+-Poder lanzar balas con la pistola (con mouse)
+-zorros mueren, tiene vida
+-persona puede morir
+
+
+
+-menu de armas
+
+-sonido
+

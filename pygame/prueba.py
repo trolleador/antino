@@ -10,9 +10,7 @@ import os #esto es para dirname
 dirname = os.path.dirname(__file__)+"/"
  
 
-class jugador:
-   
-
+class Jugador:
    def __init__(self, position_x, position_y, imagen):
       self.x = position_x
       self.y = position_y
@@ -28,7 +26,17 @@ class jugador:
       if pressed[pygame.K_d]:
          self.x += 2
 
+class Bala:
+   def __init__(self, position_x, position_y, velocity_x, velocity_y, imagen):
+      self.x = position_x
+      self.y = position_y
+      self.imagen = pygame.image.load(dirname+imagen)
+      self.vx = velocity_x 
+      self.vy = velocity_y
 
+   def movimiento(self):
+      self.x = self.x + .01*self.vx
+      self.y = self.y + .01*self.vy
 
 #iniciadores
 pygame.init()
@@ -53,13 +61,13 @@ rect = pygame.Rect(20,20,20,20)
 
 #Player pero con clases, (oUwUo) : 
 
-player = jugador(100,100,"personayarma.png")
+player = Jugador(100,100,"personayarma.png")
 
 fondo = pygame.image.load(dirname+"fondo.png")
 
 zorro = pygame.image.load(dirname+"zorro2.png")
 
-bala = pygame.image.load(dirname+"bala.png")
+bala = Bala(100,100,0,0,"bala.png")
 
 #loop principal:
 
@@ -73,6 +81,14 @@ while True:
       if event.type == QUIT:
          pygame.quit()
          sys.exit()
+         
+      if event.type == pygame.MOUSEBUTTONUP:
+         pos = pygame.mouse.get_pos()
+         bala.x = player.x
+         bala.y = player.y
+         bala.vx = pos[0]-player.x
+         bala.vy = pos[1]-player.y
+
 
     
 
@@ -82,6 +98,7 @@ while True:
 
    #movimiento con clases 
    player.movimiento(pressed)
+   bala.movimiento()
 
 
    #renderizado
@@ -93,7 +110,7 @@ while True:
    displaysurface.blit(player.imagen, (player.x,player.y))
 
 
-   displaysurface.blit(bala, (15,15))
+   displaysurface.blit(bala.imagen, (bala.x,bala.y))
 
    #actualiza lo que se ve en ventana
    pygame.display.update()
